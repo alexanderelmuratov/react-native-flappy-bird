@@ -8,6 +8,7 @@ import {
   TouchableWithoutFeedback,
   TouchableOpacity,
 } from "react-native";
+import { Audio } from "expo-av";
 import Bird from "./components/Bird";
 import Obstacles from "./components/Obstacles";
 
@@ -34,6 +35,8 @@ export default function App() {
   const obstacleWidth = 80;
   const obstacleHeight = 500;
   const gap = 200;
+  // Sounds
+  const jumpSound = require("./assets/sounds/jump.wav");
   // Timers
   let birdBottomTimerId;
   let obstaclesLeftTimerId;
@@ -53,6 +56,7 @@ export default function App() {
   const jump = () => {
     if (!isGameOver && birdBottom < screenHeight) {
       setBirdBottom((birdBottom) => birdBottom + 50);
+      playSound(jumpSound);
       console.log("Jump!!!");
     }
   };
@@ -115,6 +119,11 @@ export default function App() {
     setBirdBottom(screenHeight / 2);
     setObstaclesLeft(screenWidth);
     setObstaclesLeftTwo(screenWidth + screenWidth / 1.8);
+  };
+
+  const playSound = async (currentSound) => {
+    const { sound } = await Audio.Sound.createAsync(currentSound);
+    await sound.playAsync();
   };
 
   return (
