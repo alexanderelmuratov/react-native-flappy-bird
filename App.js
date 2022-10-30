@@ -70,7 +70,7 @@ export default function App() {
       return () => clearInterval(obstaclesLeftTimerId);
     } else {
       setObstaclesLeft(screenWidth);
-      setobstaclesNegHeight(-Math.random() * 100);
+      setobstaclesNegHeight(-Math.random() * 200);
       setScore((score) => score + 1);
     }
   }, [obstaclesLeft]);
@@ -84,7 +84,7 @@ export default function App() {
       return () => clearInterval(obstaclesLeftTimerIdTwo);
     } else {
       setObstaclesLeftTwo(screenWidth);
-      setobstaclesNegHeightTwo(-Math.random() * 100);
+      setobstaclesNegHeightTwo(-Math.random() * 200);
       setScore((score) => score + 1);
     }
   }, [obstaclesLeftTwo]);
