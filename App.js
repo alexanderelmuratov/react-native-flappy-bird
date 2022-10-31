@@ -18,9 +18,7 @@ const screenHeight = Dimensions.get("screen").height;
 export default function App() {
   const [birdBottom, setBirdBottom] = useState(screenHeight / 2);
   const [obstaclesLeft, setObstaclesLeft] = useState(screenWidth);
-  const [obstaclesLeftTwo, setObstaclesLeftTwo] = useState(
-    screenWidth + screenWidth / 1.8
-  );
+  const [obstaclesLeftTwo, setObstaclesLeftTwo] = useState(screenWidth * 2);
   const [obstaclesNegHeight, setobstaclesNegHeight] = useState(0);
   const [obstaclesNegHeightTwo, setobstaclesNegHeightTwo] = useState(
     -Math.random() * 100
